@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <style>
+        .completed {
+          text-decoration: line-through;
+          text-decoration-thickness: 2px;
+        }
+    </style>
+    <script>
+        function toggleCompleted(event) {
+            event.target.classList.toggle('completed');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Task List</h1>
+    </header>
+    <main>
+        <form action="/" method="post">
+            <input type="text" name="content" id="content" placeholder="Enter your task">
+            <input type="submit" value="Add Task">
+        </form>
+        <ul>
+        {% for task in tasks %}
+          <li onclick="toggleCompleted(event)">{{ task }}</li>
+        {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
